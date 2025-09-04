@@ -64,7 +64,7 @@
     .logo{
       display:block;
       margin:4px auto 6px;
-      width:min(260px,70%);
+      width:min(520px,90%);
       height:auto;
     }
     .flower{
@@ -90,6 +90,11 @@
       width:96%;
       position:relative;
       z-index:3;
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
+    }
+    .card.animate{
+      transform: scale(1.02);
+      box-shadow:0 10px 25px rgba(0,0,0,.18);
     }
     .message{
       font-size:clamp(28px, 7vw, 36px);
@@ -107,35 +112,30 @@
     .actions{
       display:flex; gap:12px;
       justify-content:center;
-      margin:12px 0 18px;
+      margin:6px 0 12px;
       width:100%;
       z-index:3;
     }
     .btn{
       flex:1;
-      max-width:200px;
-      border:0; cursor:pointer; padding:16px;
+      max-width:220px;
+      border:0; cursor:pointer; padding:18px;
       border-radius:12px;
-      font-size:clamp(16px,5vw,20px);
+      font-size:clamp(18px,5vw,22px);
       font-weight:700;
       transition:.2s;
     }
     .btn:active{transform:scale(.97)}
-    .btn-nova{
+    .btn-nova, .btn-share{
       background:#fff9db; color:#5a5a5a;
       border:2px solid #f2c14e;
     }
-    .btn-share{
-      background: linear-gradient(180deg, var(--yellow), var(--yellow-strong));
-      color:#3b2f00;
-      box-shadow:0 4px 12px rgba(255,193,7,.4);
-    }
 
-    footer{text-align:center; margin-top:auto; margin-bottom:12px; width:100%;}
+    footer{text-align:center; margin-top:8px; width:100%;}
     .cvv{
       background:#FFFBEF;
       border:2px dashed var(--yellow-strong);
-      padding:18px 14px;
+      padding:16px 14px;
       border-radius:16px;
       margin:0 auto;
       box-shadow:var(--shadow);
@@ -143,6 +143,7 @@
       font-size:clamp(18px, 5.5vw, 22px);
       font-weight:700;
       line-height:1.5;
+      margin-top:4px; /* mais próximo do card */
     }
     .cvv a{text-decoration:none; font-weight:800; color:var(--text)}
   </style>
@@ -157,7 +158,7 @@
     <h1>Setembro Amarelo</h1>
     <p class="subtitle">Uma nova mensagem de cuidado a cada visita 💛</p>
 
-    <section class="card">
+    <section class="card" id="card">
       <p id="mensagem" class="message">Carregando mensagem…</p>
     </section>
 
@@ -233,10 +234,13 @@
 
     function exibirNovaMensagem(){
       const el = document.getElementById("mensagem");
+      const card = document.getElementById("card");
+      card.classList.add("animate");
       el.classList.remove("show");
       setTimeout(() => {
         el.textContent = sortearMensagem();
         el.classList.add("show");
+        setTimeout(()=>card.classList.remove("animate"),500);
       }, 200);
     }
 
