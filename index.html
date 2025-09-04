@@ -36,8 +36,6 @@ html,body{
   100%{background-position:0% 50%}
 }
 
-body, main{margin:0; padding:0; height:100%; width:100%;}
-
 main{
   display:flex;
   flex-direction:column;
@@ -67,14 +65,14 @@ main{
 }
 
 .logo{
-  max-width:180px;
-  width:40%;
+  max-width:225px; /* 25% maior */
+  width:45%;
   height:auto;
   margin-top:30px;
   margin-bottom:12px;
 }
 
-h1{font-size:clamp(30px,6vw,44px); font-weight:800; margin-bottom:6px;}
+h1{font-size:clamp(32px,7vw,48px); font-weight:800; margin-bottom:6px;}
 .subtitle{font-size:clamp(14px,4vw,18px); margin-bottom:12px;}
 
 .card{
@@ -99,7 +97,7 @@ h1{font-size:clamp(30px,6vw,44px); font-weight:800; margin-bottom:6px;}
 }
 
 .message{
-  font-size:clamp(24px,5vw,32px);
+  font-size:clamp(26px,5.5vw,34px);
   font-weight:700;
   line-height:1.4;
   max-width:98%;
@@ -126,7 +124,7 @@ h1{font-size:clamp(30px,6vw,44px); font-weight:800; margin-bottom:6px;}
   flex:1;
   border:0;
   cursor:pointer;
-  padding:14px;
+  padding:16px;
   border-radius:12px;
   font-size:clamp(16px,4vw,20px);
   font-weight:700;
@@ -192,16 +190,73 @@ footer{
 </main>
 
 <script>
-const mensagens=[ /* suas 50 mensagens aqui */ ];
+const mensagens=[
+"Você é mais forte do que pensa e é amado mais do que imagina.",
+"A dor é real, mas ela não define quem você é. Sua história continua.",
+"Pedir ajuda é coragem — você merece cuidado.",
+"Respire fundo: hoje pode ser o começo de uma virada gentil.",
+"Você não está sozinho(a). Há pessoas prontas para caminhar com você.",
+"Seu valor não diminui por causa de dias difíceis.",
+"Tudo bem não estar bem o tempo todo. Procure apoio, você merece.",
+"Cada passo pequeno é progresso. Celebre o que você já conseguiu.",
+"Sua existência faz diferença no mundo.",
+"Há esperança, mesmo quando a mente diz o contrário.",
+"Você importa — mais do que as palavras conseguem explicar.",
+"Aceite a pausa: descansar também é continuar.",
+"Seja gentil consigo hoje. Você está fazendo o melhor que pode.",
+"Sentir é humano. Falar sobre isso liberta.",
+"Você já atravessou dias difíceis antes. Pode atravessar este também.",
+"Há pessoas que querem te ouvir. Conectar-se cura.",
+"Um dia de cada vez. O amanhã pode trazer novas luzes.",
+"Sua vida tem valor único e insubstituível.",
+"Esperança não é negar a dor — é acreditar que ela pode passar.",
+"Tudo pode parecer pesado agora. Você não precisa carregar isso sozinho(a).",
+"Um coração aberto encontra caminhos inesperados.",
+"Amanhã pode trazer um novo motivo para sorrir.",
+"Você é necessário neste mundo.",
+"O amor próprio também se aprende. Comece hoje.",
+"Não desista: o seu capítulo mais bonito ainda está sendo escrito.",
+"Você é importante para pessoas que talvez nem perceba.",
+"Seu sorriso pode iluminar o dia de alguém.",
+"As feridas cicatrizam, mas sua força permanece.",
+"Permita-se viver um dia de cada vez.",
+"Alguém sonha com a sua vitória junto com você.",
+"Sua história inspira mais do que você imagina.",
+"A vida é um presente — e você faz parte dela.",
+"Você é digno(a) de cuidado, amor e respeito.",
+"Até nos dias cinzentos, o sol está lá em cima.",
+"O simples fato de você existir já faz diferença.",
+"Você merece acolhimento. Você merece paz.",
+"Sua vida não é um erro. Você é um propósito.",
+"Lembre-se: pedir ajuda não é fraqueza, é coragem.",
+"Cada recomeço é uma vitória sobre o ontem.",
+"Sua presença importa para este mundo.",
+"Você é insubstituível. Nunca se esqueça disso.",
+"Não há noite que dure para sempre. A manhã sempre chega.",
+"Até o menor gesto de autocuidado vale muito.",
+"Você não precisa ter todas as respostas hoje.",
+"Permita-se acreditar que coisas boas estão por vir.",
+"O amanhã pode surpreender você de formas lindas.",
+"Sua vida é preciosa e única.",
+"Existem pessoas que querem caminhar ao seu lado.",
+"Você é um universo inteiro em forma de gente.",
+"Esperança é a chama que nunca se apaga dentro de você."
+];
 
 function sortearMensagem(){return mensagens[Math.floor(Math.random()*mensagens.length)];}
+
 function exibirNovaMensagem(){
   const el=document.getElementById("mensagem");
   const card=document.getElementById("card");
   el.classList.remove("show");
   card.classList.add("animate");
-  setTimeout(()=>{el.textContent=sortearMensagem(); el.classList.add("show"); card.classList.remove("animate");},200);
+  setTimeout(()=>{
+    el.textContent=sortearMensagem();
+    el.classList.add("show");
+    card.classList.remove("animate");
+  },200);
 }
+
 exibirNovaMensagem();
 document.getElementById("btnNova").addEventListener("click",exibirNovaMensagem);
 
