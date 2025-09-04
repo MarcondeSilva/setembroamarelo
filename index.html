@@ -24,12 +24,13 @@ html,body{
   animation:bgShift 20s ease infinite;
   color:var(--text);
   overflow:hidden;
-  margin:0;
-  padding:0;
   display:flex;
   justify-content:center;
   align-items:center;
+  margin:0;
+  padding:0;
 }
+
 @keyframes bgShift{
   0%{background-position:0% 50%}
   50%{background-position:100% 50%}
@@ -53,7 +54,7 @@ main{
 .pingos{
   position:absolute; inset:0;
   overflow:hidden; pointer-events:none;
-  z-index:2;
+  z-index:4; /* acima do card */
 }
 .pingo{
   position:absolute; top:-30px; font-size:20px;
@@ -71,16 +72,8 @@ main{
   width:min(500px,90%);
   height:auto;
 }
-.flower{
-  display:block;
-  margin:0 auto 10px;
-  width:120px;
-  height:120px;
-  animation:girar 25s linear infinite;
-}
-@keyframes girar{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
 
-h1{font-size:clamp(50px,12vw,70px); font-weight:800; margin-bottom:8px}
+h1{font-size:clamp(55px,12vw,70px); font-weight:800; margin-bottom:8px}
 .subtitle{font-size:clamp(20px,5vw,24px); margin-bottom:16px}
 
 .card{
@@ -88,7 +81,7 @@ h1{font-size:clamp(50px,12vw,70px); font-weight:800; margin-bottom:8px}
   border-radius:var(--radius);
   box-shadow:var(--shadow);
   padding:24px 16px;
-  min-height:60vh;
+  min-height:48vh; /* diminuiu 20% da altura */
   width:95%;
   display:flex;
   justify-content:center;
@@ -102,6 +95,7 @@ h1{font-size:clamp(50px,12vw,70px); font-weight:800; margin-bottom:8px}
   transform: scale(1.02);
   box-shadow:0 10px 25px rgba(0,0,0,.18);
 }
+
 .message{
   font-size:clamp(40px,10vw,60px);
   font-weight:700;
@@ -180,7 +174,6 @@ footer{
 
 <main>
 <img src="logo.png" alt="Logo Setembro Amarelo" class="logo">
-<!-- <img src="flor.png" alt="Flor girando" class="flower"> -->
 <h1>Setembro Amarelo</h1>
 <p class="subtitle">Uma nova mensagem de cuidado a cada visita 💛</p>
 
@@ -292,4 +285,3 @@ for(let i=0;i<25;i++){
 </script>
 </body>
 </html>
-
