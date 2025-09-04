@@ -109,16 +109,17 @@
     .message.show{opacity:1;transform:translateY(0);}
 
     .actions{
-      display:flex; gap:12px;
+      display:flex;
+      gap:12px;
       justify-content:center;
       margin:6px 0 12px;
-      width:100%;
+      width:96%;
+      max-width:96%;
       z-index:3;
     }
     .btn{
       flex:1;
-      max-width:240px;
-      border:0; cursor:pointer; padding:20px;
+      border:0; cursor:pointer; padding:18px;
       border-radius:12px;
       font-size:clamp(20px,5vw,24px);
       font-weight:700;
@@ -140,11 +141,11 @@
       box-shadow:var(--shadow);
       width:96%;
       font-size:clamp(20px, 5.5vw, 24px);
-      font-weight:400;
       line-height:1.5;
       margin-top:6px;
     }
     .cvv strong{font-weight:700;}
+    .cvv span{display:block; font-weight:400; margin-top:4px;}
     .cvv a{text-decoration:none; font-weight:700; color:var(--text)}
   </style>
 </head>
@@ -168,8 +169,8 @@
 
     <footer>
       <div class="cvv">
-        <strong>💛 Precisa conversar?</strong> Ligue 188 (CVV) – 
-        <a href="https://www.cvv.org.br/" target="_blank">cvv.org.br</a>
+        <strong>💛 Precisa conversar?</strong>
+        <span>Ligue 188 (CVV) – <a href="https://www.cvv.org.br/" target="_blank">cvv.org.br</a></span>
       </div>
     </footer>
   </main>
@@ -247,22 +248,17 @@
     exibirNovaMensagem();
     document.getElementById("btnNova").addEventListener("click", exibirNovaMensagem);
 
-    // Compartilhar mensagem
     document.getElementById("btnShare").addEventListener("click", () => {
       const texto = document.getElementById("mensagem").textContent + " 💛 #SetembroAmarelo";
       if (navigator.share) {
-        navigator.share({
-          title: "Setembro Amarelo",
-          text: texto,
-          url: window.location.href
-        });
+        navigator.share({ title: "Setembro Amarelo", text: texto, url: window.location.href });
       } else {
         const url = "https://wa.me/?text=" + encodeURIComponent(texto);
         window.open(url, "_blank");
       }
     });
 
-    // Criar corações dourados
+    // Corações dourados
     const pingosContainer = document.getElementById("pingos");
     const coracoes = ["💛","💛","💛","💛"];
     for(let i=0;i<25;i++){
