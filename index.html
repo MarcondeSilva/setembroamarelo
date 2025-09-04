@@ -7,33 +7,43 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     :root{
-      --yellow-light:#FFF59D;
-      --yellow:#FFD54F;
-      --yellow-strong:#FFC107;
+      --yellow-light:#FFFDE7;
+      --yellow:#FFF59D;
+      --yellow-strong:#FFD54F;
       --text:#2D2A26;
       --card:#ffffff;
-      --shadow:0 10px 20px rgba(0,0,0,.12), 0 4px 10px rgba(0,0,0,.08);
+      --shadow:0 6px 12px rgba(0,0,0,.12), 0 3px 6px rgba(0,0,0,.08);
       --radius:20px;
     }
-    *{box-sizing:border-box; margin:0; padding:0;}
-    body{
-      font-family:Poppins, sans-serif;
+    *{box-sizing:border-box;margin:0;padding:0;}
+    html,body{
+      width:100%;height:100%;
+      font-family:Poppins,sans-serif;
       background: linear-gradient(135deg, var(--yellow-light), var(--yellow), var(--yellow-strong));
       background-size:400% 400%;
-      animation:bgShift 12s ease infinite;
+      animation:bgShift 15s ease infinite;
       color:var(--text);
-      min-height:100vh;
-      display:flex; justify-content:center; align-items:center;
-      padding:12px;
-      overflow-x:hidden;
-      position:relative;
+      overflow:hidden;
     }
     @keyframes bgShift {
       0%{background-position:0% 50%}
       50%{background-position:100% 50%}
       100%{background-position:0% 50%}
     }
-    main{width:min(700px,100%); z-index:1; text-align:center}
+    main{
+      width:100%;
+      height:100%;
+      max-width:700px;
+      margin:0 auto;
+      padding:10px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:flex-start;
+      text-align:center;
+      position:relative;
+      z-index:1;
+    }
 
     /* Pingos dourados */
     .pingos{
@@ -45,7 +55,7 @@
       position:absolute; top:-20px; width:10px; height:10px;
       background:var(--yellow-strong); border-radius:50%;
       opacity:.9;
-      animation: cair linear infinite;
+      animation:cair linear infinite;
     }
     @keyframes cair{
       from{transform:translateY(-10vh);}
@@ -53,81 +63,86 @@
     }
 
     .logo{
-      display:block; margin:6px auto 12px;
-      width:min(320px,80%); height:auto;
+      display:block;
+      margin:4px auto 6px;
+      width:min(260px,70%);
+      height:auto;
     }
     .flower{
-      display:block; margin:0 auto 10px;
-      width:80px; height:80px;
-      animation: girar 25s linear infinite;
+      display:block; margin:0 auto 8px;
+      width:70px; height:70px;
+      animation:girar 25s linear infinite;
     }
-    @keyframes girar{
-      from{transform:rotate(0deg);}
-      to{transform:rotate(360deg);}
-    }
-    h1{font-size:clamp(28px, 9vw, 40px); font-weight:800; margin-bottom:6px}
-    .subtitle{font-size:clamp(15px, 4.5vw, 19px); margin-bottom:14px}
+    @keyframes girar{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+
+    h1{font-size:clamp(26px, 8vw, 38px); font-weight:800; margin-bottom:6px}
+    .subtitle{font-size:clamp(14px, 4vw, 18px); margin-bottom:10px}
 
     .card{
       background:var(--card);
       border-radius:var(--radius);
       box-shadow:var(--shadow);
-      padding:22px 12px 28px;
+      padding:20px 12px 70px; /* espaço para botões */
       min-height:35vh;
-      display:flex; flex-direction:column;
-      justify-content:space-between; align-items:center;
-      margin:0 auto 20px;
-      width:95%;
-      z-index:3; /* acima dos pingos */
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      margin:0 auto 14px;
+      width:96%;
       position:relative;
+      z-index:3;
     }
     .message{
-      font-size:clamp(30px, 8.5vw, 40px);
+      font-size:clamp(28px, 7vw, 38px);
       font-weight:700;
       line-height:1.5;
       max-width:95%;
       opacity:0;
       transform:translateY(12px);
       transition:opacity .6s ease, transform .6s ease;
-      margin-bottom:18px;
     }
-    .message.show{
-      opacity:1;
-      transform:translateY(0);
-    }
+    .message.show{opacity:1;transform:translateY(0);}
 
+    /* Botões dentro do card */
     .actions{
-      display:flex; justify-content:center; gap:10px;
+      position:absolute;
+      bottom:10px; left:50%;
+      transform:translateX(-50%);
+      display:flex; gap:12px;
+      width:90%;
+      justify-content:center;
     }
     .btn{
-      border:0; cursor:pointer; padding:10px 16px;
-      border-radius:999px; font-size:14px; font-weight:600;
+      flex:1;
+      border:0; cursor:pointer; padding:16px;
+      border-radius:12px;
+      font-size:clamp(16px,5vw,20px);
+      font-weight:700;
       transition:.2s;
     }
     .btn:active{transform:scale(.97)}
     .btn-nova{
-      background:#fff7e0; color:#6b6b6b;
-      border:1px solid #f2c14e;
+      background:#fff9db; color:#5a5a5a;
+      border:2px solid #f2c14e;
     }
     .btn-share{
       background: linear-gradient(180deg, var(--yellow), var(--yellow-strong));
       color:#3b2f00;
-      box-shadow:0 6px 14px rgba(255,193,7,.4);
+      box-shadow:0 4px 12px rgba(255,193,7,.4);
     }
 
-    footer{text-align:center; margin-top:10px;}
+    footer{text-align:center; margin-top:auto; margin-bottom:12px; width:100%;}
     .cvv{
       background:#FFFBEF;
       border:2px dashed var(--yellow-strong);
-      padding:18px 22px;
+      padding:18px 14px;
       border-radius:16px;
-      display:block;
       margin:0 auto;
       box-shadow:var(--shadow);
-      width:95%;
+      width:96%;
       font-size:clamp(18px, 5.5vw, 22px);
       font-weight:700;
-      line-height:1.6;
+      line-height:1.5;
     }
     .cvv a{text-decoration:none; font-weight:800; color:var(--text)}
   </style>
