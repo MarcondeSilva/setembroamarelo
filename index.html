@@ -64,7 +64,7 @@
     .logo{
       display:block;
       margin:4px auto 6px;
-      width:min(520px,90%);
+      width:min(390px,70%); /* 25% menor que antes */
       height:auto;
     }
     .flower{
@@ -74,15 +74,15 @@
     }
     @keyframes girar{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
 
-    h1{font-size:clamp(26px, 8vw, 38px); font-weight:800; margin-bottom:6px}
-    .subtitle{font-size:clamp(14px, 4vw, 18px); margin-bottom:12px}
+    h1{font-size:clamp(32px, 10vw, 46px); font-weight:800; margin-bottom:6px}
+    .subtitle{font-size:clamp(16px, 4.5vw, 20px); margin-bottom:12px}
 
     .card{
       background:var(--card);
       border-radius:var(--radius);
       box-shadow:var(--shadow);
       padding:20px 15px;
-      min-height:35vh;
+      min-height:40vh; /* maior altura para celular */
       display:flex;
       justify-content:center;
       align-items:center;
@@ -97,10 +97,10 @@
       box-shadow:0 10px 25px rgba(0,0,0,.18);
     }
     .message{
-      font-size:clamp(28px, 7vw, 36px);
+      font-size:clamp(32px, 9vw, 44px); /* ainda maior */
       font-weight:700;
       line-height:1.5;
-      max-width:95%;
+      max-width:98%;
       text-align:center;
       opacity:0;
       transform:translateY(12px);
@@ -118,10 +118,10 @@
     }
     .btn{
       flex:1;
-      max-width:220px;
-      border:0; cursor:pointer; padding:18px;
+      max-width:240px;
+      border:0; cursor:pointer; padding:20px;
       border-radius:12px;
-      font-size:clamp(18px,5vw,22px);
+      font-size:clamp(20px,5vw,24px); /* maiores */
       font-weight:700;
       transition:.2s;
     }
@@ -131,7 +131,7 @@
       border:2px solid #f2c14e;
     }
 
-    footer{text-align:center; margin-top:8px; width:100%;}
+    footer{text-align:center; margin-top:6px; width:100%;}
     .cvv{
       background:#FFFBEF;
       border:2px dashed var(--yellow-strong);
@@ -140,10 +140,10 @@
       margin:0 auto;
       box-shadow:var(--shadow);
       width:96%;
-      font-size:clamp(18px, 5.5vw, 22px);
+      font-size:clamp(20px, 5.5vw, 24px); /* mais visível */
       font-weight:700;
       line-height:1.5;
-      margin-top:4px; /* mais próximo do card */
+      margin-top:6px;
     }
     .cvv a{text-decoration:none; font-weight:800; color:var(--text)}
   </style>
