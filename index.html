@@ -4,92 +4,121 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Setembro Amarelo</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     :root{
-      --yellow-1:#FFF9DB;
-      --yellow-2:#FFE680;
-      --yellow-3:#FFD54F;
-      --yellow-4:#FFC107;
+      --yellow:#FFD54F;
+      --yellow-strong:#FFC107;
       --text:#2D2A26;
       --muted:#6B655E;
-      --card:#FFFFFF;
+      --card:#ffffff;
       --shadow:0 12px 28px rgba(0,0,0,.12), 0 6px 14px rgba(0,0,0,.08);
-      --radius:20px;
+      --radius:22px;
     }
-    *{box-sizing:border-box}
+    *{box-sizing:border-box; margin:0; padding:0;}
     body{
-      margin:0;
       font-family:Poppins, sans-serif;
-      background: linear-gradient(180deg, var(--yellow-1), #FFFBEA 60%);
+      background:#fff;
       color:var(--text);
+      min-height:100vh;
+      display:flex; justify-content:center; align-items:center;
       padding:20px;
-      display:flex; justify-content:center;
+      overflow-x:hidden;
+      position:relative;
     }
-    main{width:min(640px,100%)}
+    main{width:min(640px,100%); z-index:2; text-align:center}
+
+    /* Pingos dourados */
+    .pingos{
+      position:absolute; inset:0;
+      overflow:hidden; z-index:0;
+      pointer-events:none;
+    }
+    .pingo{
+      position:absolute; top:-20px; width:8px; height:8px;
+      background:var(--yellow-strong); border-radius:50%;
+      opacity:.7;
+      animation: cair linear infinite;
+    }
+    @keyframes cair{
+      from{transform:translateY(-10vh);}
+      to{transform:translateY(110vh);}
+    }
 
     .logo{
-      display:block;
-      margin:20px auto 10px;
-      width:min(360px, 80%);
-      height:auto;
+      display:block; margin:0 auto 12px;
+      width:min(360px,80%); height:auto;
     }
-    h1{text-align:center; font-size:clamp(22px, 7vw, 34px); font-weight:800}
-    .subtitle{text-align:center; font-size:14px; color:var(--muted)}
+    .flower{
+      display:block; margin:0 auto 8px;
+      width:80px; height:80px;
+      animation: girar 25s linear infinite;
+    }
+    @keyframes girar{
+      from{transform:rotate(0deg);}
+      to{transform:rotate(360deg);}
+    }
+    h1{font-size:clamp(26px, 9vw, 38px); font-weight:800; margin-bottom:4px}
+    .subtitle{font-size:clamp(14px, 4vw, 18px); color:var(--muted); margin-bottom:16px}
 
     .card{
       background:var(--card);
       border-radius:var(--radius);
       box-shadow:var(--shadow);
-      padding:20px;
-      margin-top:16px;
+      padding:24px 18px;
+      min-height:35vh; /* corpo ocupa pelo menos 35% da altura da tela */
+      display:flex; justify-content:center; align-items:center;
     }
-    .message{font-size:18px; font-weight:600; line-height:1.5}
+    .message{
+      font-size:clamp(26px, 7vw, 34px); /* maior no celular */
+      font-weight:600;
+      line-height:1.5;
+    }
 
-    .actions{display:flex; justify-content:center; gap:10px; margin-top:14px}
+    .actions{display:flex; justify-content:center; gap:10px; margin-top:20px}
     .btn{
-      border:0; cursor:pointer; padding:10px 16px;
-      border-radius:999px;
-      font-size:15px; font-weight:600;
+      border:0; cursor:pointer; padding:12px 18px;
+      border-radius:999px; font-size:15px; font-weight:600;
       transition:.2s;
     }
     .btn:active{transform:scale(.97)}
-
-    /* Botão Nova mensagem: discreto */
     .btn-nova{
       background:#fdf6d9; color:#6b6b6b;
       border:1px solid #f0e0a0;
     }
-
-    /* Botão Compartilhar: destaque */
     .btn-share{
-      background: linear-gradient(180deg, var(--yellow-3), var(--yellow-4));
+      background: linear-gradient(180deg, var(--yellow), var(--yellow-strong));
       color:#3b2f00;
       box-shadow:0 6px 14px rgba(255,193,7,.35);
     }
 
-    footer{text-align:center; margin-top:16px; font-size:13px; color:var(--muted)}
+    footer{text-align:center; margin-top:20px; font-size:14px; color:var(--muted)}
     .cvv{
       background:#FFF7D6; border:1px dashed #F2C14E;
       padding:10px 14px; border-radius:12px;
-      display:inline-block;
+      display:inline-block; margin-top:6px;
     }
     .cvv a{text-decoration:none; font-weight:700; color:inherit}
   </style>
 </head>
 <body>
+  <!-- Pingos dourados -->
+  <div class="pingos" id="pingos"></div>
+
   <main>
     <img src="logo.png" alt="Logo Setembro Amarelo" class="logo">
+    <img src="flor.png" alt="Flor girando" class="flower">
     <h1>Setembro Amarelo</h1>
     <p class="subtitle">Uma nova mensagem de cuidado a cada visita 💛</p>
 
     <section class="card">
       <p id="mensagem" class="message">Carregando mensagem…</p>
-      <div class="actions">
-        <button class="btn btn-nova" id="btnNova">Nova mensagem</button>
-        <button class="btn btn-share" id="btnShare">Compartilhar</button>
-      </div>
     </section>
+
+    <div class="actions">
+      <button class="btn btn-nova" id="btnNova">Nova mensagem</button>
+      <button class="btn btn-share" id="btnShare">Compartilhar</button>
+    </div>
 
     <footer>
       <div class="cvv">💛 Precisa conversar? Ligue <strong>188</strong> (CVV) – 
@@ -110,7 +139,46 @@
       "Cada passo pequeno é progresso. Celebre o que você já conseguiu.",
       "Sua existência faz diferença no mundo.",
       "Há esperança, mesmo quando a mente diz o contrário.",
-      // ... (complete até 50 mensagens como no exemplo anterior)
+      "Você importa — mais do que as palavras conseguem explicar.",
+      "Aceite a pausa: descansar também é continuar.",
+      "Seja gentil consigo hoje. Você está fazendo o melhor que pode.",
+      "Sentir é humano. Falar sobre isso liberta.",
+      "Você já atravessou dias difíceis antes. Pode atravessar este também.",
+      "Há pessoas que querem te ouvir. Conectar-se cura.",
+      "Um dia de cada vez. O amanhã pode trazer novas luzes.",
+      "Sua vida tem valor único e insubstituível.",
+      "Esperança não é negar a dor — é acreditar que ela pode passar.",
+      "Tudo pode parecer pesado agora. Você não precisa carregar isso sozinho(a).",
+      "Um coração aberto encontra caminhos inesperados.",
+      "Amanhã pode trazer um novo motivo para sorrir.",
+      "Você é necessário neste mundo.",
+      "O amor próprio também se aprende. Comece hoje.",
+      "Não desista: o seu capítulo mais bonito ainda está sendo escrito.",
+      "Você é importante para pessoas que talvez nem perceba.",
+      "Seu sorriso pode iluminar o dia de alguém.",
+      "As feridas cicatrizam, mas sua força permanece.",
+      "Permita-se viver um dia de cada vez.",
+      "Alguém sonha com a sua vitória junto com você.",
+      "Sua história inspira mais do que você imagina.",
+      "A vida é um presente — e você faz parte dela.",
+      "Você é digno(a) de cuidado, amor e respeito.",
+      "Até nos dias cinzentos, o sol está lá em cima.",
+      "O simples fato de você existir já faz diferença.",
+      "Você merece acolhimento. Você merece paz.",
+      "Sua vida não é um erro. Você é um propósito.",
+      "Lembre-se: pedir ajuda não é fraqueza, é coragem.",
+      "Cada recomeço é uma vitória sobre o ontem.",
+      "Sua presença importa para este mundo.",
+      "Você é insubstituível. Nunca se esqueça disso.",
+      "Não há noite que dure para sempre. A manhã sempre chega.",
+      "Até o menor gesto de autocuidado vale muito.",
+      "Você não precisa ter todas as respostas hoje.",
+      "Permita-se acreditar que coisas boas estão por vir.",
+      "O amanhã pode surpreender você de formas lindas.",
+      "Sua vida é preciosa e única.",
+      "Existem pessoas que querem caminhar ao seu lado.",
+      "Você é um universo inteiro em forma de gente.",
+      "Esperança é a chama que nunca se apaga dentro de você."
     ];
 
     function sortearMensagem(){
@@ -134,11 +202,21 @@
           url: window.location.href
         });
       } else {
-        // Fallback: WhatsApp
         const url = "https://wa.me/?text=" + encodeURIComponent(texto);
         window.open(url, "_blank");
       }
     });
+
+    // Criar pingos dourados
+    const pingosContainer = document.getElementById("pingos");
+    for(let i=0;i<20;i++){
+      const p = document.createElement("div");
+      p.classList.add("pingo");
+      p.style.left = Math.random()*100 + "vw";
+      p.style.animationDuration = (4 + Math.random()*4) + "s";
+      p.style.animationDelay = (Math.random()*5) + "s";
+      pingosContainer.appendChild(p);
+    }
   </script>
 </body>
 </html>
