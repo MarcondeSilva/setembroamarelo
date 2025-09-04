@@ -113,7 +113,7 @@
       padding: clamp(40px, 6vw, 60px);
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
       position: relative;
-      min-height: max(260px, 35vh);
+      min-height: max(260px, 45vh);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -182,10 +182,10 @@
     .refresh-btn {
       background: var(--primary);
       color: var(--text);
-      border: none;
+      border: 2px;
       border-radius: 50px;
       padding: 12px 24px;
-      font-weight: 600;
+      font-weight: 800;
       font-size: 16px;
       cursor: pointer;
       transition: all 0.3s ease;
@@ -254,13 +254,13 @@
       </div>
     </section>
 
-    <button class="refresh-btn" id="refreshButton"><h2><Nova mensagem</h2></button>
+    <button class="refresh-btn" id="refreshButton"><h2>Nova mensagem</h2></button>
 
     <footer>
       <div class="badge" role="note">
-        <strong>Precisa conversar agora?</strong>
+        <strong><h2>Precisa conversar agora?</strong>
         <span>No Brasil, ligue <strong>188</strong> (CVV) – 24h, gratuito.
-        <a href="https://www.cvv.org.br/" target="_blank" rel="noopener">cvv.org.br</a></span>
+        <a href="https://www.cvv.org.br/" target="_blank" rel="noopener">cvv.org.br</h2></a></span>
       </div>
       <span>Se estiver em perigo imediato, procure ajuda local de emergência.</span>
     </footer>
@@ -324,4 +324,3 @@
   </script>
 </body>
 </html>
-
