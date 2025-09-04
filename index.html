@@ -4,265 +4,166 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Setembro Amarelo – Campanha Pela Vida</title>
-  <meta name="description" content="Página radical para o Setembro Amarelo com partículas animadas e mensagem destacada.">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #FFD54F;
-      --primary-strong: #FFC107;
-      --bg-start: #FFFBE6;
-      --bg-end: #FFF1B0;
-      --text: #2D2A26;
-      --muted: #6B655E;
-      --card-bg: rgba(255, 255, 255, 0.95);
-      --shadow: 0 10px 25px rgba(0, 0, 0, .08), 0 4px 10px rgba(0, 0, 0, .06);
+      --primary: #FFC107;
+      --secondary: #FFEB3B;
+      --bg-start: #fffbe6;
+      --bg-end: #fff4c2;
+      --text: #2d2a26;
+      --muted: #6b655e;
+      --glass-bg: rgba(255, 255, 255, 0.65);
+      --shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    html, body {
-      min-height: 100vh;
-      margin: 0;
-      font-family: Poppins, sans-serif;
-      overflow-x: hidden;
-      background: linear-gradient(135deg, var(--bg-start), var(--bg-end));
-      animation: bgAnim 20s ease infinite alternate;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
+      min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: flex-start;
-      padding: 4rem 1rem 2rem;
-    }
-
-    @keyframes bgAnim {
-      0% { background: linear-gradient(135deg, #FFFBE6, #FFF1B0); }
-      50% { background: linear-gradient(135deg, #FFF3C4, #FFE082); }
-      100% { background: linear-gradient(135deg, #FFFBE6, #FFF1B0); }
+      padding: 3rem 1rem;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, var(--bg-start), var(--bg-end));
     }
 
     .wrap {
       width: min(900px, 100%);
       text-align: center;
-      position: relative;
       display: flex;
       flex-direction: column;
       gap: 2rem;
     }
 
-    .logo {
-      display: block;
-      margin: 0 auto;
-      width: min(180px, 40%);
-      height: auto;
-      animation: pulse 3s infinite alternate;
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1); }
-    }
-
     header {
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       align-items: center;
-      gap: 1.5rem;
+      justify-content: center;
+      gap: 1rem;
     }
 
     .flower {
-      width: clamp(120px, 25vw, 180px);
+      width: 90px;
       height: auto;
       animation: spin 20s linear infinite;
-      filter: drop-shadow(0 0 10px #FFD54F);
+      filter: drop-shadow(0 0 6px var(--primary));
     }
 
     @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+      to { transform: rotate(360deg); }
     }
 
     .title h1 {
       font-size: clamp(28px, 6vw, 48px);
-      font-weight: 800;
-      margin: 0;
+      font-weight: 700;
       color: var(--text);
-      text-shadow: 2px 2px 8px rgba(255, 215, 79, 0.7);
-      animation: floatTitle 4s ease-in-out infinite alternate;
-    }
-
-    @keyframes floatTitle {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
-      100% { transform: translateY(0); }
+      text-shadow: 1px 1px 6px rgba(255, 215, 79, 0.6);
     }
 
     .title p {
-      margin: 0.5rem 0 0;
       font-size: clamp(14px, 3.5vw, 18px);
       color: var(--muted);
+      margin-top: .5rem;
     }
 
     .card {
-      background: var(--card-bg);
-      border-radius: 24px;
-      padding: clamp(40px, 6vw, 60px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-      position: relative;
-      min-height: max(260px, 45vh);
+      background: var(--glass-bg);
+      backdrop-filter: blur(12px);
+      border-radius: 20px;
+      padding: 3rem 2rem;
+      box-shadow: var(--shadow);
+      min-height: 200px;
       display: flex;
       align-items: center;
       justify-content: center;
-      text-align: center;
-      margin: 0;
+      position: relative;
       overflow: hidden;
     }
 
-    .particles {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-    }
-
-    .particle {
-      position: absolute;
-      width: 6px;
-      height: 6px;
-      background: gold;
-      border-radius: 50%;
-      opacity: 0.8;
-      animation: floatParticle linear infinite;
-    }
-
-    @keyframes floatParticle {
-      0% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 0.8;
-      }
-      50% {
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-200px) rotate(360deg);
-        opacity: 0;
-      }
-    }
-
-    .message-container {
-      position: relative;
-      padding: 0;
-      max-width: 95%;
-    }
-
     .message {
-      font-size: clamp(24px, 5.5vw, 38px);
-      font-weight: 800;
-      line-height: 1.4;
-      opacity: 0;
-      transform: translateY(8px);
-      animation: fadeIn 1s ease forwards;
-      margin: 0;
-      padding: 20px;
-      border-radius: 20px;
-      background: transparent;
+      font-size: clamp(20px, 5vw, 34px);
+      font-weight: 600;
       color: var(--text);
+      line-height: 1.4;
+      animation: fadeIn 1s ease forwards;
+      opacity: 0;
     }
 
     @keyframes fadeIn {
-      to {
-        opacity: 1;
-        transform: none;
-      }
+      to { opacity: 1; transform: none; }
     }
 
     .refresh-btn {
-      background: var(--primary);
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
       color: var(--text);
-      border: 2px;
+      border: none;
       border-radius: 50px;
-      padding: 12px 24px;
-      font-weight: 800;
+      padding: 14px 32px;
+      font-weight: 700;
       font-size: 16px;
       cursor: pointer;
-      transition: all 0.3s ease;
-      /* Removido o box-shadow e a animação para tirar o brilho amarelo */
+      transition: transform .2s ease, box-shadow .2s ease;
+      box-shadow: var(--shadow);
     }
 
     .refresh-btn:hover {
-      transform: translateY(-2px);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(0,0,0,.2);
     }
 
-    .refresh-btn:active {
-      transform: translateY(0);
+    .logo {
+      width: 140px;
+      height: auto;
+      margin: 0 auto;
+      display: block;
+      filter: drop-shadow(0 3px 6px rgba(0,0,0,.1));
     }
 
     footer {
-      margin-top: 0;
       color: var(--muted);
-      font-size: clamp(12px, 3.2vw, 14px);
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      text-align: center;
+      font-size: 14px;
+      margin-top: 1rem;
     }
 
     .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: #FFF3CD;
-      border: 1px dashed #F0C14B;
-      padding: 12px 16px;
-      border-radius: 12px;
-      width: fit-content;
-      margin: 0 auto;
+      background: var(--glass-bg);
+      padding: 12px 18px;
+      border-radius: 16px;
+      display: inline-block;
+      font-weight: 600;
       box-shadow: var(--shadow);
-      flex-wrap: wrap;
-      justify-content: center;
     }
 
-    a {
-      color: inherit;
-      transition: color 0.2s ease;
-    }
-
-    a:hover {
-      color: var(--primary-strong);
-    }
+    a { color: var(--primary); text-decoration: none; font-weight: 600; }
+    a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
-  <main class="wrap" role="main">
-    <img src="logo.png" alt="Logo da campanha" class="logo" width="164" height="86" onerror="this.style.display='none'">
-
+  <main class="wrap">
     <header>
-      <img src="flor.png" alt="Flor amarela" class="flower" width="360" height="360" onerror="this.style.display='none'">
+      <img src="flor.png" alt="Flor amarela" class="flower" onerror="this.style.display='none'">
       <div class="title">
         <h1>Setembro Amarelo</h1>
         <p>Você é importante. Sua vida tem valor.</p>
       </div>
     </header>
 
-    <section class="card" aria-live="polite" aria-atomic="true">
-      <div class="particles" id="particles"></div>
-      <div class="message-container">
-        <div id="mensagem" class="message">Carregando mensagem…</div>
-      </div>
+    <section class="card">
+      <div class="message" id="mensagem">Carregando mensagem…</div>
     </section>
 
-    <button class="refresh-btn" id="refreshButton"><h2>Nova mensagem</h2></button>
+    <button class="refresh-btn" id="refreshButton">✨ Nova mensagem</button>
+
+    <img src="logo.png" alt="Logo da campanha" class="logo" onerror="this.style.display='none'">
 
     <footer>
-      <div class="badge" role="note">
-        <strong><h2>Precisa conversar agora?</strong>
-        <span>No Brasil, ligue <strong>188</strong> (CVV) – 24h, gratuito.
-        <a href="https://www.cvv.org.br/" target="_blank" rel="noopener">cvv.org.br</h2></a></span>
+      <div class="badge">
+        Precisa conversar? Ligue <strong>188</strong> (CVV) – 24h, gratuito.  
+        <a href="https://www.cvv.org.br/" target="_blank">cvv.org.br</a>
       </div>
-      <span>Se estiver em perigo imediato, procure ajuda local de emergência.</span>
     </footer>
   </main>
 
@@ -296,31 +197,15 @@
 
     function exibirNovaMensagem() {
       const elMsg = document.getElementById('mensagem');
-      elMsg.style.animation = 'none';
       elMsg.style.opacity = '0';
-      elMsg.style.transform = 'translateY(8px)';
       setTimeout(() => {
         elMsg.textContent = mensagemAleatoria();
-        elMsg.style.animation = 'fadeIn 1s ease forwards';
+        elMsg.style.opacity = '1';
       }, 300);
     }
 
     exibirNovaMensagem();
-
     document.getElementById('refreshButton').addEventListener('click', exibirNovaMensagem);
-
-    // Partículas animadas
-    const particlesContainer = document.getElementById('particles');
-    for (let i = 0; i < 40; i++) {
-      const p = document.createElement('div');
-      p.classList.add('particle');
-      p.style.left = Math.random() * 100 + '%';
-      p.style.top = Math.random() * 100 + '%';
-      p.style.animationDuration = (2 + Math.random() * 3) + 's';
-      p.style.width = (3 + Math.random() * 4) + 'px';
-      p.style.height = p.style.width;
-      particlesContainer.appendChild(p);
-    }
   </script>
 </body>
 </html>
