@@ -7,37 +7,44 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     :root{
-      --yellow:#FFD000;
-      --yellow-strong:#FFB300;
+      --yellow-light:#FFF59D;
+      --yellow:#FFD54F;
+      --yellow-strong:#FFC107;
       --text:#2D2A26;
-      --muted:#6B655E;
       --card:#ffffff;
-      --shadow:0 12px 28px rgba(0,0,0,.12), 0 6px 14px rgba(0,0,0,.08);
-      --radius:22px;
+      --shadow:0 10px 20px rgba(0,0,0,.12), 0 4px 10px rgba(0,0,0,.08);
+      --radius:20px;
     }
     *{box-sizing:border-box; margin:0; padding:0;}
     body{
       font-family:Poppins, sans-serif;
-      background: linear-gradient(135deg, var(--yellow), var(--yellow-strong));
+      background: linear-gradient(135deg, var(--yellow-light), var(--yellow), var(--yellow-strong));
+      background-size:400% 400%;
+      animation:bgShift 12s ease infinite;
       color:var(--text);
       min-height:100vh;
       display:flex; justify-content:center; align-items:center;
-      padding:16px;
+      padding:12px;
       overflow-x:hidden;
       position:relative;
     }
-    main{width:min(680px,100%); z-index:2; text-align:center}
+    @keyframes bgShift {
+      0%{background-position:0% 50%}
+      50%{background-position:100% 50%}
+      100%{background-position:0% 50%}
+    }
+    main{width:min(700px,100%); z-index:1; text-align:center}
 
     /* Pingos dourados */
     .pingos{
       position:absolute; inset:0;
-      overflow:hidden; z-index:0;
-      pointer-events:none;
+      overflow:hidden; pointer-events:none;
+      z-index:2;
     }
     .pingo{
       position:absolute; top:-20px; width:10px; height:10px;
       background:var(--yellow-strong); border-radius:50%;
-      opacity:.85;
+      opacity:.9;
       animation: cair linear infinite;
     }
     @keyframes cair{
@@ -46,11 +53,11 @@
     }
 
     .logo{
-      display:block; margin:4px auto 10px;
-      width:min(360px,80%); height:auto;
+      display:block; margin:6px auto 12px;
+      width:min(320px,80%); height:auto;
     }
     .flower{
-      display:block; margin:0 auto 8px;
+      display:block; margin:0 auto 10px;
       width:80px; height:80px;
       animation: girar 25s linear infinite;
     }
@@ -58,25 +65,28 @@
       from{transform:rotate(0deg);}
       to{transform:rotate(360deg);}
     }
-    h1{font-size:clamp(26px, 9vw, 38px); font-weight:800; margin-bottom:4px}
-    .subtitle{font-size:clamp(14px, 4vw, 18px); color:var(--text); margin-bottom:16px}
+    h1{font-size:clamp(28px, 9vw, 40px); font-weight:800; margin-bottom:6px}
+    .subtitle{font-size:clamp(15px, 4.5vw, 19px); margin-bottom:14px}
 
     .card{
       background:var(--card);
       border-radius:var(--radius);
       box-shadow:var(--shadow);
-      padding:24px 14px;
+      padding:22px 12px;
       min-height:35vh;
       display:flex; justify-content:center; align-items:center;
-      margin-bottom:20px;
+      margin:0 auto 20px;
+      width:95%;
+      z-index:3; /* acima dos pingos */
+      position:relative;
     }
     .message{
-      font-size:clamp(28px, 7.5vw, 36px);
-      font-weight:600;
+      font-size:clamp(30px, 8.5vw, 40px);
+      font-weight:700;
       line-height:1.5;
-      max-width:90%;
+      max-width:95%;
       opacity:0;
-      transform:translateY(10px);
+      transform:translateY(12px);
       transition:opacity .6s ease, transform .6s ease;
     }
     .message.show{
@@ -105,15 +115,15 @@
     .cvv{
       background:#FFFBEF;
       border:2px dashed var(--yellow-strong);
-      padding:16px 20px;
+      padding:18px 22px;
       border-radius:16px;
       display:block;
       margin:0 auto;
       box-shadow:var(--shadow);
-      max-width:90%;
-      font-size:clamp(16px, 5vw, 20px);
-      font-weight:600;
-      line-height:1.5;
+      width:95%;
+      font-size:clamp(18px, 5.5vw, 22px);
+      font-weight:700;
+      line-height:1.6;
     }
     .cvv a{text-decoration:none; font-weight:800; color:var(--text)}
   </style>
