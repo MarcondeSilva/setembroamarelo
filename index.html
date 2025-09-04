@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8" />
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Setembro Amarelo</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
@@ -23,28 +23,30 @@ html,body{
   background-size:400% 400%;
   animation:bgShift 20s ease infinite;
   color:var(--text);
-  overflow-x:hidden;
+  overflow:hidden;
   margin:0;
   padding:0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
 }
 @keyframes bgShift{
   0%{background-position:0% 50%}
   50%{background-position:100% 50%}
   100%{background-position:0% 50%}
 }
+
 main{
   width:100%;
+  height:100%;
   max-width:700px;
-  margin:0 auto;
   padding:4px;
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:flex-start;
-  text-align:center;
   position:relative;
-  z-index:1;
-  min-height:100vh;
+  text-align:center;
 }
 
 /* Corações caindo */
@@ -66,32 +68,32 @@ main{
 .logo{
   display:block;
   margin:30px auto 12px;
-  width:min(400px,90%);
+  width:min(500px,90%);
   height:auto;
 }
 .flower{
   display:block;
   margin:0 auto 10px;
-  width:100px;
-  height:100px;
+  width:120px;
+  height:120px;
   animation:girar 25s linear infinite;
 }
 @keyframes girar{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
 
-h1{font-size:clamp(42px,12vw,60px); font-weight:800; margin-bottom:8px}
-.subtitle{font-size:clamp(18px,5vw,22px); margin-bottom:16px}
+h1{font-size:clamp(50px,12vw,70px); font-weight:800; margin-bottom:8px}
+.subtitle{font-size:clamp(20px,5vw,24px); margin-bottom:16px}
 
 .card{
   background:var(--card);
   border-radius:var(--radius);
   box-shadow:var(--shadow);
-  padding:24px 12px;
-  min-height:50vh;
+  padding:24px 16px;
+  min-height:60vh;
+  width:95%;
   display:flex;
   justify-content:center;
   align-items:center;
-  margin:0 auto 14px;
-  width:95%;
+  margin-bottom:16px;
   position:relative;
   z-index:3;
   transition: transform 0.5s ease, box-shadow 0.5s ease;
@@ -101,7 +103,7 @@ h1{font-size:clamp(42px,12vw,60px); font-weight:800; margin-bottom:8px}
   box-shadow:0 10px 25px rgba(0,0,0,.18);
 }
 .message{
-  font-size:clamp(36px,10vw,50px);
+  font-size:clamp(40px,10vw,60px);
   font-weight:700;
   line-height:1.4;
   max-width:98%;
@@ -124,33 +126,38 @@ h1{font-size:clamp(42px,12vw,60px); font-weight:800; margin-bottom:8px}
   display:flex;
   gap:12px;
   justify-content:center;
-  margin-bottom:12px;
   width:95%;
   max-width:95%;
+  margin-bottom:6px;
   z-index:3;
 }
 .btn{
   flex:1;
-  border:0; cursor:pointer; padding:18px;
-  border-radius:12px;
-  font-size:clamp(24px,5vw,28px);
+  border:0;
+  cursor:pointer;
+  padding:20px;
+  border-radius:16px;
+  font-size:clamp(26px,6vw,30px);
   font-weight:700;
   transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
 }
-.btn:active{transform:scale(.97)}
+.btn:active{transform:scale(.97);}
 .btn-nova, .btn-share{
   background: linear-gradient(135deg, #FFFDE7, #FFF9C4);
   color:#3b2f00;
   border:2px solid #FFE082;
-  box-shadow:0 6px 18px rgba(255,193,7,0.5);
+  box-shadow:0 6px 20px rgba(255,193,7,0.5);
 }
 .btn-nova:hover, .btn-share:hover{
   background: linear-gradient(135deg, #FFF9C4,#FFFDE7);
-  box-shadow:0 8px 24px rgba(255,193,7,0.6);
+  box-shadow:0 8px 26px rgba(255,193,7,0.6);
   transform: translateY(-2px);
 }
 
-footer{text-align:center; margin-top:6px; width:100%;}
+footer{
+  text-align:center;
+  width:100%;
+}
 .cvv{
   background:#FFFBEF;
   border:2px dashed var(--yellow-strong);
@@ -161,7 +168,7 @@ footer{text-align:center; margin-top:6px; width:100%;}
   width:95%;
   font-size:clamp(20px,5.5vw,24px);
   line-height:1.5;
-  margin-top:6px;
+  margin-top:4px;
 }
 .cvv strong{font-weight:700;}
 .cvv span{display:block;font-weight:400;margin-top:4px;}
@@ -249,22 +256,18 @@ const mensagens=[
 ];
 
 function sortearMensagem(){return mensagens[Math.floor(Math.random()*mensagens.length)];}
-
 function exibirNovaMensagem(){
   const el=document.getElementById("mensagem");
   const card=document.getElementById("card");
-  card.classList.add("animate");
   el.classList.remove("show");
-  setTimeout(()=>{
-    el.textContent=sortearMensagem();
-    el.classList.add("show");
-    setTimeout(()=>card.classList.remove("animate"),500);
-  },200);
+  card.classList.add("animate");
+  setTimeout(()=>{el.textContent=sortearMensagem(); el.classList.add("show"); card.classList.remove("animate");},200);
 }
 exibirNovaMensagem();
-document.getElementById("btnNova").addEventListener("click", exibirNovaMensagem);
+document.getElementById("btnNova").addEventListener("click",exibirNovaMensagem);
 
-document.getElementById("btnShare").addEventListener("click", ()=>{
+// Compartilhar mensagem
+document.getElementById("btnShare").addEventListener("click",()=>{
   const texto=document.getElementById("mensagem").textContent+" 💛 #SetembroAmarelo";
   if(navigator.share){
     navigator.share({title:"Setembro Amarelo",text:texto,url:window.location.href});
@@ -281,8 +284,8 @@ for(let i=0;i<25;i++){
   p.classList.add("pingo");
   p.textContent="💛";
   p.style.left=Math.random()*100+"vw";
-  p.style.fontSize=(16+Math.random()*20)+"px";
-  p.style.animationDuration=(4+Math.random()*6)+"s";
+  p.style.fontSize=(24+Math.random()*16)+"px";
+  p.style.animationDuration=(4+Math.random()*5)+"s";
   p.style.animationDelay=(Math.random()*5)+"s";
   pingosContainer.appendChild(p);
 }
