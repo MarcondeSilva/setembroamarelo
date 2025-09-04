@@ -117,18 +117,27 @@
       max-width:96%;
       z-index:3;
     }
+
+    /* Botões destacados */
     .btn{
       flex:1;
       border:0; cursor:pointer; padding:18px;
       border-radius:12px;
       font-size:clamp(20px,5vw,24px);
       font-weight:700;
-      transition:.2s;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
     }
     .btn:active{transform:scale(.97)}
     .btn-nova, .btn-share{
-      background:#fff9db; color:#5a5a5a;
-      border:2px solid #f2c14e;
+      background: linear-gradient(135deg, #FFD54F, #FFC107);
+      color:#3b2f00;
+      border:2px solid #FFC107;
+      box-shadow:0 6px 18px rgba(255,193,7,0.5);
+    }
+    .btn-nova:hover, .btn-share:hover{
+      background: linear-gradient(135deg, #FFE082, #FFD54F);
+      box-shadow:0 8px 24px rgba(255,193,7,0.6);
+      transform: translateY(-2px);
     }
 
     footer{text-align:center; margin-top:6px; width:100%;}
@@ -190,7 +199,7 @@
       "Você importa — mais do que as palavras conseguem explicar.",
       "Aceite a pausa: descansar também é continuar.",
       "Seja gentil consigo hoje. Você está fazendo o melhor que pode.",
-      "Ainda que o meu pai e a minha mãe me abandonem, o SENHOR cuidará de mim - Sl 27:10.",
+      "Sentir é humano. Falar sobre isso liberta.",
       "Você já atravessou dias difíceis antes. Pode atravessar este também.",
       "Há pessoas que querem te ouvir. Conectar-se cura.",
       "Um dia de cada vez. O amanhã pode trazer novas luzes.",
@@ -209,7 +218,7 @@
       "Alguém sonha com a sua vitória junto com você.",
       "Sua história inspira mais do que você imagina.",
       "A vida é um presente — e você faz parte dela.",
-      "Esforça-te, e tem bom ânimo; não temas, nem te espantes; porque o Senhor teu Deus é contigo, por onde quer que andares Josué 1:9",
+      "Você é digno(a) de cuidado, amor e respeito.",
       "Até nos dias cinzentos, o sol está lá em cima.",
       "O simples fato de você existir já faz diferença.",
       "Você merece acolhimento. Você merece paz.",
@@ -219,13 +228,13 @@
       "Sua presença importa para este mundo.",
       "Você é insubstituível. Nunca se esqueça disso.",
       "Não há noite que dure para sempre. A manhã sempre chega.",
-      "Ainda que eu andasse pelo vale da sombra da morte, não temeria mal algum, porque Deus estás comigo; Salmos 23:4",
+      "Até o menor gesto de autocuidado vale muito.",
       "Você não precisa ter todas as respostas hoje.",
       "Permita-se acreditar que coisas boas estão por vir.",
       "O amanhã pode surpreender você de formas lindas.",
-      "Deus é o nosso refúgio e fortaleza, socorro bem presente na angústia - Salmos 46:1",
+      "Sua vida é preciosa e única.",
       "Existem pessoas que querem caminhar ao seu lado.",
-      "Você é a imagem e semelhança do Deus que te criou. Já imaginou?",
+      "Você é um universo inteiro em forma de gente.",
       "Esperança é a chama que nunca se apaga dentro de você."
     ];
 
@@ -274,4 +283,3 @@
   </script>
 </body>
 </html>
-
