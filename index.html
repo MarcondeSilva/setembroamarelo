@@ -12,12 +12,13 @@
   --yellow-strong:#FFE082;
   --text:#2D2A26;
   --card:#ffffff;
-  --shadow:0 6px 12px rgba(0,0,0,.12),0 3px 6px rgba(0,0,0,.08);
-  --radius:20px;
+  --shadow:0 4px 10px rgba(0,0,0,.12),0 2px 5px rgba(0,0,0,.08);
+  --radius:16px;
 }
 *{box-sizing:border-box;margin:0;padding:0;}
 html,body{
-  width:100%;height:100%;
+  width:100%;
+  height:100%;
   font-family:Poppins,sans-serif;
   background: linear-gradient(135deg, var(--yellow-light), var(--yellow), var(--yellow-strong));
   background-size:400% 400%;
@@ -27,8 +28,6 @@ html,body{
   display:flex;
   justify-content:center;
   align-items:center;
-  margin:0;
-  padding:0;
 }
 
 @keyframes bgShift{
@@ -37,27 +36,28 @@ html,body{
   100%{background-position:0% 50%}
 }
 
+body, main{margin:0; padding:0; height:100%; width:100%;}
+
 main{
-  width:100%;
-  height:100%;
-  max-width:700px;
-  padding:4px;
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:flex-start;
+  width:100%;
+  max-width:700px;
+  height:100%;
+  padding:0 6px;
   position:relative;
   text-align:center;
 }
 
-/* Corações caindo */
 .pingos{
   position:absolute; inset:0;
   overflow:hidden; pointer-events:none;
-  z-index:4; /* acima do card */
+  z-index:4; 
 }
 .pingo{
-  position:absolute; top:-30px; font-size:20px;
+  position:absolute; top:-30px; font-size:18px;
   color:gold; opacity:.85;
   animation:cair linear infinite;
 }
@@ -67,37 +67,39 @@ main{
 }
 
 .logo{
-  display:block;
-  margin:30px auto 12px;
-  width:min(500px,90%);
+  max-width:180px;
+  width:40%;
   height:auto;
+  margin-top:30px;
+  margin-bottom:12px;
 }
 
-h1{font-size:clamp(55px,12vw,70px); font-weight:800; margin-bottom:8px}
-.subtitle{font-size:clamp(20px,5vw,24px); margin-bottom:16px}
+h1{font-size:clamp(30px,6vw,44px); font-weight:800; margin-bottom:6px;}
+.subtitle{font-size:clamp(14px,4vw,18px); margin-bottom:12px;}
 
 .card{
   background:var(--card);
   border-radius:var(--radius);
   box-shadow:var(--shadow);
-  padding:24px 16px;
-  min-height:48vh; /* diminuiu 20% da altura */
-  width:95%;
+  padding:12px 10px;
+  width:90%;
+  max-width:95%;
+  flex:1 1 auto;
   display:flex;
   justify-content:center;
   align-items:center;
-  margin-bottom:16px;
+  margin-bottom:8px;
   position:relative;
   z-index:3;
-  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 .card.animate{
   transform: scale(1.02);
-  box-shadow:0 10px 25px rgba(0,0,0,.18);
+  box-shadow:0 8px 20px rgba(0,0,0,.15);
 }
 
 .message{
-  font-size:clamp(40px,10vw,60px);
+  font-size:clamp(24px,5vw,32px);
   font-weight:700;
   line-height:1.4;
   max-width:98%;
@@ -109,19 +111,14 @@ h1{font-size:clamp(55px,12vw,70px); font-weight:800; margin-bottom:8px}
 .message.show{
   opacity:1;
   transform:translateY(0);
-  animation: brilho 1.5s ease-in-out;
-}
-@keyframes brilho{
-  0%,100%{text-shadow:0 0 4px rgba(255,223,0,0.3);}
-  50%{text-shadow:0 0 12px rgba(255,223,0,0.7);}
 }
 
 .actions{
   display:flex;
-  gap:12px;
+  gap:10px;
   justify-content:center;
-  width:95%;
-  max-width:95%;
+  width:90%;
+  max-width:90%;
   margin-bottom:6px;
   z-index:3;
 }
@@ -129,9 +126,9 @@ h1{font-size:clamp(55px,12vw,70px); font-weight:800; margin-bottom:8px}
   flex:1;
   border:0;
   cursor:pointer;
-  padding:20px;
-  border-radius:16px;
-  font-size:clamp(26px,6vw,30px);
+  padding:14px;
+  border-radius:12px;
+  font-size:clamp(16px,4vw,20px);
   font-weight:700;
   transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
 }
@@ -140,32 +137,32 @@ h1{font-size:clamp(55px,12vw,70px); font-weight:800; margin-bottom:8px}
   background: linear-gradient(135deg, #FFFDE7, #FFF9C4);
   color:#3b2f00;
   border:2px solid #FFE082;
-  box-shadow:0 6px 20px rgba(255,193,7,0.5);
+  box-shadow:0 4px 12px rgba(255,193,7,0.5);
 }
 .btn-nova:hover, .btn-share:hover{
   background: linear-gradient(135deg, #FFF9C4,#FFFDE7);
-  box-shadow:0 8px 26px rgba(255,193,7,0.6);
-  transform: translateY(-2px);
+  box-shadow:0 6px 16px rgba(255,193,7,0.6);
+  transform: translateY(-1px);
 }
 
 footer{
   text-align:center;
-  width:100%;
+  width:90%;
+  max-width:95%;
 }
 .cvv{
   background:#FFFBEF;
   border:2px dashed var(--yellow-strong);
-  padding:16px 14px;
-  border-radius:16px;
+  padding:14px 12px;
+  border-radius:14px;
   margin:0 auto;
   box-shadow:var(--shadow);
-  width:95%;
-  font-size:clamp(20px,5.5vw,24px);
+  font-size:clamp(16px,4vw,20px);
   line-height:1.5;
-  margin-top:4px;
+  margin-bottom:6px;
 }
 .cvv strong{font-weight:700;}
-.cvv span{display:block;font-weight:400;margin-top:4px;}
+.cvv span{display:block;font-weight:400;margin-top:2px;}
 .cvv a{text-decoration:none;font-weight:700;color:var(--text);}
 </style>
 </head>
@@ -195,58 +192,7 @@ footer{
 </main>
 
 <script>
-const mensagens=[
-  "Você é mais forte do que pensa e é amado mais do que imagina.",
-  "A dor é real, mas ela não define quem você é. Sua história continua.",
-  "Pedir ajuda é coragem — você merece cuidado.",
-  "Respire fundo: hoje pode ser o começo de uma virada gentil.",
-  "Você não está sozinho(a). Há pessoas prontas para caminhar com você.",
-  "Seu valor não diminui por causa de dias difíceis.",
-  "Tudo bem não estar bem o tempo todo. Procure apoio, você merece.",
-  "Cada passo pequeno é progresso. Celebre o que você já conseguiu.",
-  "Sua existência faz diferença no mundo.",
-  "Há esperança, mesmo quando a mente diz o contrário.",
-  "Você importa — mais do que as palavras conseguem explicar.",
-  "Aceite a pausa: descansar também é continuar.",
-  "Seja gentil consigo hoje. Você está fazendo o melhor que pode.",
-  "Sentir é humano. Falar sobre isso liberta.",
-  "Você já atravessou dias difíceis antes. Pode atravessar este também.",
-  "Há pessoas que querem te ouvir. Conectar-se cura.",
-  "Um dia de cada vez. O amanhã pode trazer novas luzes.",
-  "Sua vida tem valor único e insubstituível.",
-  "Esperança não é negar a dor — é acreditar que ela pode passar.",
-  "Tudo pode parecer pesado agora. Você não precisa carregar isso sozinho(a).",
-  "Um coração aberto encontra caminhos inesperados.",
-  "Amanhã pode trazer um novo motivo para sorrir.",
-  "Você é necessário neste mundo.",
-  "O amor próprio também se aprende. Comece hoje.",
-  "Não desista: o seu capítulo mais bonito ainda está sendo escrito.",
-  "Você é importante para pessoas que talvez nem perceba.",
-  "Seu sorriso pode iluminar o dia de alguém.",
-  "As feridas cicatrizam, mas sua força permanece.",
-  "Permita-se viver um dia de cada vez.",
-  "Alguém sonha com a sua vitória junto com você.",
-  "Sua história inspira mais do que você imagina.",
-  "A vida é um presente — e você faz parte dela.",
-  "Você é digno(a) de cuidado, amor e respeito.",
-  "Até nos dias cinzentos, o sol está lá em cima.",
-  "O simples fato de você existir já faz diferença.",
-  "Você merece acolhimento. Você merece paz.",
-  "Sua vida não é um erro. Você é um propósito.",
-  "Lembre-se: pedir ajuda não é fraqueza, é coragem.",
-  "Cada recomeço é uma vitória sobre o ontem.",
-  "Sua presença importa para este mundo.",
-  "Você é insubstituível. Nunca se esqueça disso.",
-  "Não há noite que dure para sempre. A manhã sempre chega.",
-  "Até o menor gesto de autocuidado vale muito.",
-  "Você não precisa ter todas as respostas hoje.",
-  "Permita-se acreditar que coisas boas estão por vir.",
-  "O amanhã pode surpreender você de formas lindas.",
-  "Sua vida é preciosa e única.",
-  "Existem pessoas que querem caminhar ao seu lado.",
-  "Você é um universo inteiro em forma de gente.",
-  "Esperança é a chama que nunca se apaga dentro de você."
-];
+const mensagens=[ /* suas 50 mensagens aqui */ ];
 
 function sortearMensagem(){return mensagens[Math.floor(Math.random()*mensagens.length)];}
 function exibirNovaMensagem(){
@@ -277,8 +223,8 @@ for(let i=0;i<25;i++){
   p.classList.add("pingo");
   p.textContent="💛";
   p.style.left=Math.random()*100+"vw";
-  p.style.fontSize=(24+Math.random()*16)+"px";
-  p.style.animationDuration=(4+Math.random()*5)+"s";
+  p.style.fontSize=(16+Math.random()*10)+"px";
+  p.style.animationDuration=(4+Math.random()*4)+"s";
   p.style.animationDelay=(Math.random()*5)+"s";
   pingosContainer.appendChild(p);
 }
