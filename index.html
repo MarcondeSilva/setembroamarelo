@@ -17,11 +17,11 @@
       --card-bg: rgba(255, 255, 255, 0.95);
       --shadow: 0 10px 25px rgba(0, 0, 0, .08), 0 4px 10px rgba(0, 0, 0, .06);
     }
-    
+
     * {
       box-sizing: border-box;
     }
-    
+
     html, body {
       min-height: 100vh;
       margin: 0;
@@ -30,26 +30,20 @@
       background: linear-gradient(135deg, var(--bg-start), var(--bg-end));
       animation: bgAnim 20s ease infinite alternate;
     }
-    
+
     body {
       display: flex;
       justify-content: center;
       align-items: flex-start;
       padding: 4rem 1rem 2rem;
     }
-    
+
     @keyframes bgAnim {
-      0% {
-        background: linear-gradient(135deg, #FFFBE6, #FFF1B0);
-      }
-      50% {
-        background: linear-gradient(135deg, #FFF3C4, #FFE082);
-      }
-      100% {
-        background: linear-gradient(135deg, #FFFBE6, #FFF1B0);
-      }
+      0% { background: linear-gradient(135deg, #FFFBE6, #FFF1B0); }
+      50% { background: linear-gradient(135deg, #FFF3C4, #FFE082); }
+      100% { background: linear-gradient(135deg, #FFFBE6, #FFF1B0); }
     }
-    
+
     .wrap {
       width: min(900px, 100%);
       text-align: center;
@@ -58,7 +52,7 @@
       flex-direction: column;
       gap: 2rem;
     }
-    
+
     .logo {
       display: block;
       margin: 0 auto;
@@ -66,42 +60,32 @@
       height: auto;
       animation: pulse 3s infinite alternate;
     }
-    
+
     @keyframes pulse {
-      0% {
-        transform: scale(1);
-      }
-      50% {
-        transform: scale(1.05);
-      }
-      100% {
-        transform: scale(1);
-      }
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
     }
-    
+
     header {
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 1.5rem;
     }
-    
+
     .flower {
       width: clamp(120px, 25vw, 180px);
       height: auto;
       animation: spin 20s linear infinite;
       filter: drop-shadow(0 0 10px #FFD54F);
     }
-    
+
     @keyframes spin {
-      0% {
-        transform: rotate(0deg);
-      }
-      100% {
-        transform: rotate(360deg);
-      }
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
     }
-    
+
     .title h1 {
       font-size: clamp(28px, 6vw, 48px);
       font-weight: 800;
@@ -110,32 +94,26 @@
       text-shadow: 2px 2px 8px rgba(255, 215, 79, 0.7);
       animation: floatTitle 4s ease-in-out infinite alternate;
     }
-    
+
     @keyframes floatTitle {
-      0% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-8px);
-      }
-      100% {
-        transform: translateY(0);
-      }
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+      100% { transform: translateY(0); }
     }
-    
+
     .title p {
       margin: 0.5rem 0 0;
       font-size: clamp(14px, 3.5vw, 18px);
       color: var(--muted);
     }
-    
+
     .card {
       background: var(--card-bg);
       border-radius: 24px;
       padding: clamp(40px, 6vw, 60px);
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
       position: relative;
-      min-height: 260px;
+      min-height: max(260px, 45vh);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -143,13 +121,13 @@
       margin: 0;
       overflow: hidden;
     }
-    
+
     .particles {
       position: absolute;
       inset: 0;
       pointer-events: none;
     }
-    
+
     .particle {
       position: absolute;
       width: 6px;
@@ -159,7 +137,7 @@
       opacity: 0.8;
       animation: floatParticle linear infinite;
     }
-    
+
     @keyframes floatParticle {
       0% {
         transform: translateY(0) rotate(0deg);
@@ -173,13 +151,13 @@
         opacity: 0;
       }
     }
-    
+
     .message-container {
       position: relative;
       padding: 0;
       max-width: 95%;
     }
-    
+
     .message {
       font-size: clamp(24px, 5.5vw, 38px);
       font-weight: 800;
@@ -193,14 +171,14 @@
       background: transparent;
       color: var(--text);
     }
-    
+
     @keyframes fadeIn {
       to {
         opacity: 1;
         transform: none;
       }
     }
-    
+
     .refresh-btn {
       background: var(--primary);
       color: var(--text);
@@ -210,31 +188,18 @@
       font-weight: 600;
       font-size: 16px;
       cursor: pointer;
-      box-shadow: 0 0 10px #FFD54F, 0 0 20px #FFC107;
-      animation: btnPulse 2s infinite alternate;
       transition: all 0.3s ease;
+      /* Removido o box-shadow e a animação para tirar o brilho amarelo */
     }
-    
-    @keyframes btnPulse {
-      0% {
-        box-shadow: 0 0 10px #FFD54F, 0 0 20px #FFC107;
-      }
-      50% {
-        box-shadow: 0 0 15px #FFD54F, 0 0 30px #FFC107;
-      }
-      100% {
-        box-shadow: 0 0 10px #FFD54F, 0 0 20px #FFC107;
-      }
-    }
-    
+
     .refresh-btn:hover {
       transform: translateY(-2px);
     }
-    
+
     .refresh-btn:active {
       transform: translateY(0);
     }
-    
+
     footer {
       margin-top: 0;
       color: var(--muted);
@@ -244,7 +209,7 @@
       gap: 12px;
       text-align: center;
     }
-    
+
     .badge {
       display: inline-flex;
       align-items: center;
@@ -259,12 +224,12 @@
       flex-wrap: wrap;
       justify-content: center;
     }
-    
+
     a {
       color: inherit;
       transition: color 0.2s ease;
     }
-    
+
     a:hover {
       color: var(--primary-strong);
     }
@@ -273,7 +238,7 @@
 <body>
   <main class="wrap" role="main">
     <img src="logo.png" alt="Logo da campanha" class="logo" width="164" height="86" onerror="this.style.display='none'">
-    
+
     <header>
       <img src="flor.png" alt="Flor amarela" class="flower" width="360" height="360" onerror="this.style.display='none'">
       <div class="title">
@@ -281,27 +246,26 @@
         <p>Você é importante. Sua vida tem valor.</p>
       </div>
     </header>
-    
+
     <section class="card" aria-live="polite" aria-atomic="true">
       <div class="particles" id="particles"></div>
-      
       <div class="message-container">
         <div id="mensagem" class="message">Carregando mensagem…</div>
       </div>
     </section>
-    
+
     <button class="refresh-btn" id="refreshButton">Nova mensagem</button>
-    
+
     <footer>
       <div class="badge" role="note">
         <strong>Precisa conversar agora?</strong>
-        <span>No Brasil, ligue <strong>188</strong> (CVV) – 24h, gratuito. 
+        <span>No Brasil, ligue <strong>188</strong> (CVV) – 24h, gratuito.
         <a href="https://www.cvv.org.br/" target="_blank" rel="noopener">cvv.org.br</a></span>
       </div>
       <span>Se estiver em perigo imediato, procure ajuda local de emergência.</span>
     </footer>
   </main>
-  
+
   <script>
     const mensagens = [
       "Você é mais forte do que pensa e é amado mais do que imagina.",
@@ -325,11 +289,11 @@
       "Esperança não é negar a dor — é acreditar que ela pode passar.",
       "Tudo pode parecer pesado agora. Você não precisa carregar isso sozinho(a)."
     ];
-    
+
     function mensagemAleatoria() {
       return mensagens[Math.floor(Math.random() * mensagens.length)];
     }
-    
+
     function exibirNovaMensagem() {
       const elMsg = document.getElementById('mensagem');
       elMsg.style.animation = 'none';
@@ -340,12 +304,12 @@
         elMsg.style.animation = 'fadeIn 1s ease forwards';
       }, 300);
     }
-    
+
     exibirNovaMensagem();
-    
+
     document.getElementById('refreshButton').addEventListener('click', exibirNovaMensagem);
-    
-    /* PARTICULAS */
+
+    // Partículas animadas
     const particlesContainer = document.getElementById('particles');
     for (let i = 0; i < 40; i++) {
       const p = document.createElement('div');
