@@ -62,8 +62,8 @@
 
     .logo{
       display:block;
-      margin:4px auto 6px;
-      width:min(220px,70%);
+      margin:30px auto 6px; /* margin-top maior */
+      width:min(275px, 80%); /* 25% maior que antes */
       height:auto;
     }
     .flower{
@@ -73,7 +73,7 @@
     }
     @keyframes girar{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
 
-    h1{font-size:clamp(36px, 11vw, 50px); font-weight:800; margin-bottom:6px}
+    h1{font-size:clamp(38px, 12vw, 52px); font-weight:800; margin-bottom:6px}
     .subtitle{font-size:clamp(16px, 4.5vw, 20px); margin-bottom:12px}
 
     .card{
@@ -86,7 +86,7 @@
       justify-content:center;
       align-items:center;
       margin:0 auto 14px;
-      width:90%; /* Card maior */
+      width:90%;
       position:relative;
       z-index:3;
       transition: transform 0.5s ease, box-shadow 0.5s ease;
@@ -105,7 +105,6 @@
       transform:translateY(12px);
       transition:opacity .6s ease, transform .6s ease;
     }
-    /* Brilho suave nas mensagens */
     .message.show {
       opacity: 1;
       transform: translateY(0);
@@ -126,7 +125,6 @@
       z-index:3;
     }
 
-    /* Botões destacados */
     .btn{
       flex:1;
       border:0; cursor:pointer; padding:18px;
@@ -137,13 +135,13 @@
     }
     .btn:active{transform:scale(.97)}
     .btn-nova, .btn-share{
-      background: linear-gradient(135deg, #FFD54F, #FFC107);
+      background: linear-gradient(135deg, #FFF9C4, #FFFDE7); /* amarelo mais claro */
       color:#3b2f00;
-      border:2px solid #FFC107;
+      border:2px solid #FFE082;
       box-shadow:0 6px 18px rgba(255,193,7,0.5);
     }
     .btn-nova:hover, .btn-share:hover{
-      background: linear-gradient(135deg, #FFE082, #FFD54F);
+      background: linear-gradient(135deg, #FFFDE7, #FFF9C4);
       box-shadow:0 8px 24px rgba(255,193,7,0.6);
       transform: translateY(-2px);
     }
@@ -156,7 +154,7 @@
       border-radius:16px;
       margin:0 auto;
       box-shadow:var(--shadow);
-      width:90%; /* Igual ao card */
+      width:90%;
       font-size:clamp(20px, 5.5vw, 24px);
       line-height:1.5;
       margin-top:6px;
@@ -281,7 +279,7 @@
       p.classList.add("pingo");
       p.textContent = "💛";
       p.style.left = Math.random()*100 + "vw";
-      p.style.fontSize = (14 + Math.random()*20) + "px";
+      p.style.fontSize = (16 + Math.random()*20) + "px";
       p.style.animationDuration = (4 + Math.random()*6) + "s";
       p.style.animationDelay = (Math.random()*5) + "s";
       pingosContainer.appendChild(p);
