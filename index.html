@@ -1,290 +1,291 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Setembro Amarelo</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --yellow-light:#FFFDE7;
-      --yellow:#FFF9C4;
-      --yellow-strong:#FFE082;
-      --text:#2D2A26;
-      --card:#ffffff;
-      --shadow:0 6px 12px rgba(0,0,0,.12), 0 3px 6px rgba(0,0,0,.08);
-      --radius:20px;
-    }
-    *{box-sizing:border-box;margin:0;padding:0;}
-    html,body{
-      width:100%;height:100%;
-      font-family:Poppins,sans-serif;
-      background: linear-gradient(135deg, var(--yellow-light), var(--yellow), var(--yellow-strong));
-      background-size:400% 400%;
-      animation:bgShift 18s ease infinite;
-      color:var(--text);
-      overflow-x:hidden;
-    }
-    @keyframes bgShift {
-      0%{background-position:0% 50%}
-      50%{background-position:100% 50%}
-      100%{background-position:0% 50%}
-    }
-    main{
-      width:100%;
-      max-width:700px;
-      margin:0 auto;
-      padding:10px;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:flex-start;
-      text-align:center;
-      position:relative;
-      z-index:1;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Setembro Amarelo</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --yellow-light:#FFFDE7;
+  --yellow:#FFF9C4;
+  --yellow-strong:#FFE082;
+  --text:#2D2A26;
+  --card:#ffffff;
+  --shadow:0 6px 12px rgba(0,0,0,.12),0 3px 6px rgba(0,0,0,.08);
+  --radius:20px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{
+  width:100%;height:100%;
+  font-family:Poppins,sans-serif;
+  background: linear-gradient(135deg, var(--yellow-light), var(--yellow), var(--yellow-strong));
+  background-size:400% 400%;
+  animation:bgShift 20s ease infinite;
+  color:var(--text);
+  overflow-x:hidden;
+  margin:0;
+  padding:0;
+}
+@keyframes bgShift{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+main{
+  width:100%;
+  max-width:700px;
+  margin:0 auto;
+  padding:4px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-start;
+  text-align:center;
+  position:relative;
+  z-index:1;
+  min-height:100vh;
+}
 
-    /* Corações caindo */
-    .pingos{
-      position:absolute; inset:0;
-      overflow:hidden; pointer-events:none;
-      z-index:2;
-    }
-    .pingo{
-      position:absolute; top:-30px; font-size:20px;
-      color:gold; opacity:.85;
-      animation:cair linear infinite;
-    }
-    @keyframes cair{
-      from{transform:translateY(-10vh);}
-      to{transform:translateY(110vh);}
-    }
+/* Corações caindo */
+.pingos{
+  position:absolute; inset:0;
+  overflow:hidden; pointer-events:none;
+  z-index:2;
+}
+.pingo{
+  position:absolute; top:-30px; font-size:20px;
+  color:gold; opacity:.85;
+  animation:cair linear infinite;
+}
+@keyframes cair{
+  from{transform:translateY(-10vh);}
+  to{transform:translateY(110vh);}
+}
 
-    .logo{
-      display:block;
-      margin:30px auto 6px; /* margin-top maior */
-      width:min(360px, 80%); /* 25% maior que antes */
-      height:auto;
-    }
-    .flower{
-      display:block; margin:0 auto 8px;
-      width:70px; height:70px;
-      animation:girar 25s linear infinite;
-    }
-    @keyframes girar{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+.logo{
+  display:block;
+  margin:30px auto 12px;
+  width:min(400px,90%);
+  height:auto;
+}
+.flower{
+  display:block;
+  margin:0 auto 10px;
+  width:100px;
+  height:100px;
+  animation:girar 25s linear infinite;
+}
+@keyframes girar{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
 
-    h1{font-size:clamp(38px, 12vw, 52px); font-weight:800; margin-bottom:6px}
-    .subtitle{font-size:clamp(16px, 4.5vw, 20px); margin-bottom:12px}
+h1{font-size:clamp(42px,12vw,60px); font-weight:800; margin-bottom:8px}
+.subtitle{font-size:clamp(18px,5vw,22px); margin-bottom:16px}
 
-    .card{
-      background:var(--card);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      padding:20px 15px;
-      min-height:40vh;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      margin:0 auto 14px;
-      width:90%;
-      position:relative;
-      z-index:3;
-      transition: transform 0.5s ease, box-shadow 0.5s ease;
-    }
-    .card.animate{
-      transform: scale(1.02);
-      box-shadow:0 10px 25px rgba(0,0,0,.18);
-    }
-    .message{
-      font-size:clamp(32px, 9vw, 44px);
-      font-weight:700;
-      line-height:1.5;
-      max-width:98%;
-      text-align:center;
-      opacity:0;
-      transform:translateY(12px);
-      transition:opacity .6s ease, transform .6s ease;
-    }
-    .message.show {
-      opacity: 1;
-      transform: translateY(0);
-      animation: brilho 1.5s ease-in-out;
-    }
-    @keyframes brilho {
-      0%, 100% { text-shadow: 0 0 4px rgba(255,223,0,0.3); }
-      50% { text-shadow: 0 0 12px rgba(255,223,0,0.7); }
-    }
+.card{
+  background:var(--card);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:24px 12px;
+  min-height:50vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin:0 auto 14px;
+  width:95%;
+  position:relative;
+  z-index:3;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+.card.animate{
+  transform: scale(1.02);
+  box-shadow:0 10px 25px rgba(0,0,0,.18);
+}
+.message{
+  font-size:clamp(36px,10vw,50px);
+  font-weight:700;
+  line-height:1.4;
+  max-width:98%;
+  text-align:center;
+  opacity:0;
+  transform:translateY(12px);
+  transition:opacity .6s ease, transform .6s ease;
+}
+.message.show{
+  opacity:1;
+  transform:translateY(0);
+  animation: brilho 1.5s ease-in-out;
+}
+@keyframes brilho{
+  0%,100%{text-shadow:0 0 4px rgba(255,223,0,0.3);}
+  50%{text-shadow:0 0 12px rgba(255,223,0,0.7);}
+}
 
-    .actions{
-      display:flex;
-      gap:12px;
-      justify-content:center;
-      margin:6px 0 12px;
-      width:90%;
-      max-width:90%;
-      z-index:3;
-    }
+.actions{
+  display:flex;
+  gap:12px;
+  justify-content:center;
+  margin-bottom:12px;
+  width:95%;
+  max-width:95%;
+  z-index:3;
+}
+.btn{
+  flex:1;
+  border:0; cursor:pointer; padding:18px;
+  border-radius:12px;
+  font-size:clamp(24px,5vw,28px);
+  font-weight:700;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
+}
+.btn:active{transform:scale(.97)}
+.btn-nova, .btn-share{
+  background: linear-gradient(135deg, #FFFDE7, #FFF9C4);
+  color:#3b2f00;
+  border:2px solid #FFE082;
+  box-shadow:0 6px 18px rgba(255,193,7,0.5);
+}
+.btn-nova:hover, .btn-share:hover{
+  background: linear-gradient(135deg, #FFF9C4,#FFFDE7);
+  box-shadow:0 8px 24px rgba(255,193,7,0.6);
+  transform: translateY(-2px);
+}
 
-    .btn{
-      flex:1;
-      border:0; cursor:pointer; padding:18px;
-      border-radius:12px;
-      font-size:clamp(20px,5vw,24px);
-      font-weight:800;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
-    }
-    .btn:active{transform:scale(.97)}
-    .btn-nova, .btn-share{
-      background: linear-gradient(135deg, #FFF9C4, #FFFDE7); /* amarelo mais claro */
-      color:#3b2f00;
-      border:2px solid #FFE082;
-      box-shadow:0 6px 18px rgba(255,193,7,0.5);
-    }
-    .btn-nova:hover, .btn-share:hover{
-      background: linear-gradient(135deg, #FFFDE7, #FFF9C4);
-      box-shadow:0 8px 24px rgba(255,193,7,0.6);
-      transform: translateY(-2px);
-    }
-
-    footer{text-align:center; margin-top:6px; width:100%;}
-    .cvv{
-      background:#FFFBEF;
-      border:2px dashed var(--yellow-strong);
-      padding:16px 14px;
-      border-radius:16px;
-      margin:0 auto;
-      box-shadow:var(--shadow);
-      width:90%;
-      font-size:clamp(20px, 5.5vw, 24px);
-      line-height:1.5;
-      margin-top:6px;
-    }
-    .cvv strong{font-weight:700;}
-    .cvv span{display:block; font-weight:400; margin-top:4px;}
-    .cvv a{text-decoration:none; font-weight:700; color:var(--text)}
-  </style>
+footer{text-align:center; margin-top:6px; width:100%;}
+.cvv{
+  background:#FFFBEF;
+  border:2px dashed var(--yellow-strong);
+  padding:16px 14px;
+  border-radius:16px;
+  margin:0 auto;
+  box-shadow:var(--shadow);
+  width:95%;
+  font-size:clamp(20px,5.5vw,24px);
+  line-height:1.5;
+  margin-top:6px;
+}
+.cvv strong{font-weight:700;}
+.cvv span{display:block;font-weight:400;margin-top:4px;}
+.cvv a{text-decoration:none;font-weight:700;color:var(--text);}
+</style>
 </head>
 <body>
-  <div class="pingos" id="pingos"></div>
+<div class="pingos" id="pingos"></div>
 
-  <main>
-    <img src="logo.png" alt="Logo Setembro Amarelo" class="logo">
-    <img src="flor.png" alt="Flor girando" class="flower">
-    <h1>Setembro Amarelo</h1>
-    <p class="subtitle">Uma nova mensagem de cuidado a cada visita 💛</p>
+<main>
+<img src="logo.png" alt="Logo Setembro Amarelo" class="logo">
+<img src="flor.png" alt="Flor girando" class="flower">
+<h1>Setembro Amarelo</h1>
+<p class="subtitle">Uma nova mensagem de cuidado a cada visita 💛</p>
 
-    <section class="card" id="card">
-      <p id="mensagem" class="message">Carregando mensagem…</p>
-    </section>
+<section class="card" id="card">
+  <p id="mensagem" class="message">Carregando mensagem…</p>
+</section>
 
-    <div class="actions">
-      <button class="btn btn-nova" id="btnNova">Nova mensagem</button>
-      <button class="btn btn-share" id="btnShare">Compartilhar</button>
-    </div>
+<div class="actions">
+  <button class="btn btn-nova" id="btnNova">Nova mensagem</button>
+  <button class="btn btn-share" id="btnShare">Compartilhar</button>
+</div>
 
-    <footer>
-      <div class="cvv">
-        <strong>💛 Precisa conversar?</strong>
-        <span>Ligue 188 (CVV) – <a href="https://www.cvv.org.br/" target="_blank">cvv.org.br</a></span>
-      </div>
-    </footer>
-  </main>
+<footer>
+  <div class="cvv">
+    <strong>💛 Precisa conversar?</strong>
+    <span>Ligue 188 (CVV) – <a href="https://www.cvv.org.br/" target="_blank">cvv.org.br</a></span>
+  </div>
+</footer>
+</main>
 
-  <script>
-    const mensagens = [
-      "Você é mais forte do que pensa e é amado mais do que imagina.",
-      "A dor é real, mas ela não define quem você é. Sua história continua.",
-      "Pedir ajuda é coragem — você merece cuidado.",
-      "Respire fundo: hoje pode ser o começo de uma virada gentil.",
-      "Você não está sozinho(a). Há pessoas prontas para caminhar com você.",
-      "Seu valor não diminui por causa de dias difíceis.",
-      "Tudo bem não estar bem o tempo todo. Procure apoio, você merece.",
-      "Cada passo pequeno é progresso. Celebre o que você já conseguiu.",
-      "Sua existência faz diferença no mundo.",
-      "Há esperança, mesmo quando a mente diz o contrário.",
-      "Você importa — mais do que as palavras conseguem explicar.",
-      "Aceite a pausa: descansar também é continuar.",
-      "Seja gentil consigo hoje. Você está fazendo o melhor que pode.",
-      "Sentir é humano. Falar sobre isso liberta.",
-      "Você já atravessou dias difíceis antes. Pode atravessar este também.",
-      "Há pessoas que querem te ouvir. Conectar-se cura.",
-      "Um dia de cada vez. O amanhã pode trazer novas luzes.",
-      "Sua vida tem valor único e insubstituível.",
-      "Esperança não é negar a dor — é acreditar que ela pode passar.",
-      "Tudo pode parecer pesado agora. Você não precisa carregar isso sozinho(a).",
-      "Um coração aberto encontra caminhos inesperados.",
-      "Amanhã pode trazer um novo motivo para sorrir.",
-      "Você é necessário neste mundo.",
-      "O amor próprio também se aprende. Comece hoje.",
-      "Não desista: o seu capítulo mais bonito ainda está sendo escrito.",
-      "Você é importante para pessoas que talvez nem perceba.",
-      "Seu sorriso pode iluminar o dia de alguém.",
-      "As feridas cicatrizam, mas sua força permanece.",
-      "Permita-se viver um dia de cada vez.",
-      "Alguém sonha com a sua vitória junto com você.",
-      "Sua história inspira mais do que você imagina.",
-      "A vida é um presente — e você faz parte dela.",
-      "Você é digno(a) de cuidado, amor e respeito.",
-      "Até nos dias cinzentos, o sol está lá em cima.",
-      "O simples fato de você existir já faz diferença.",
-      "Você merece acolhimento. Você merece paz.",
-      "Sua vida não é um erro. Você é um propósito.",
-      "Lembre-se: pedir ajuda não é fraqueza, é coragem.",
-      "Cada recomeço é uma vitória sobre o ontem.",
-      "Sua presença importa para este mundo.",
-      "Você é insubstituível. Nunca se esqueça disso.",
-      "Não há noite que dure para sempre. A manhã sempre chega.",
-      "Até o menor gesto de autocuidado vale muito.",
-      "Você não precisa ter todas as respostas hoje.",
-      "Permita-se acreditar que coisas boas estão por vir.",
-      "O amanhã pode surpreender você de formas lindas.",
-      "Sua vida é preciosa e única.",
-      "Existem pessoas que querem caminhar ao seu lado.",
-      "Você é um universo inteiro em forma de gente.",
-      "Esperança é a chama que nunca se apaga dentro de você."
-    ];
+<script>
+const mensagens=[
+  "Você é mais forte do que pensa e é amado mais do que imagina.",
+  "A dor é real, mas ela não define quem você é. Sua história continua.",
+  "Pedir ajuda é coragem — você merece cuidado.",
+  "Respire fundo: hoje pode ser o começo de uma virada gentil.",
+  "Você não está sozinho(a). Há pessoas prontas para caminhar com você.",
+  "Seu valor não diminui por causa de dias difíceis.",
+  "Tudo bem não estar bem o tempo todo. Procure apoio, você merece.",
+  "Cada passo pequeno é progresso. Celebre o que você já conseguiu.",
+  "Sua existência faz diferença no mundo.",
+  "Há esperança, mesmo quando a mente diz o contrário.",
+  "Você importa — mais do que as palavras conseguem explicar.",
+  "Aceite a pausa: descansar também é continuar.",
+  "Seja gentil consigo hoje. Você está fazendo o melhor que pode.",
+  "Sentir é humano. Falar sobre isso liberta.",
+  "Você já atravessou dias difíceis antes. Pode atravessar este também.",
+  "Há pessoas que querem te ouvir. Conectar-se cura.",
+  "Um dia de cada vez. O amanhã pode trazer novas luzes.",
+  "Sua vida tem valor único e insubstituível.",
+  "Esperança não é negar a dor — é acreditar que ela pode passar.",
+  "Tudo pode parecer pesado agora. Você não precisa carregar isso sozinho(a).",
+  "Um coração aberto encontra caminhos inesperados.",
+  "Amanhã pode trazer um novo motivo para sorrir.",
+  "Você é necessário neste mundo.",
+  "O amor próprio também se aprende. Comece hoje.",
+  "Não desista: o seu capítulo mais bonito ainda está sendo escrito.",
+  "Você é importante para pessoas que talvez nem perceba.",
+  "Seu sorriso pode iluminar o dia de alguém.",
+  "As feridas cicatrizam, mas sua força permanece.",
+  "Permita-se viver um dia de cada vez.",
+  "Alguém sonha com a sua vitória junto com você.",
+  "Sua história inspira mais do que você imagina.",
+  "A vida é um presente — e você faz parte dela.",
+  "Você é digno(a) de cuidado, amor e respeito.",
+  "Até nos dias cinzentos, o sol está lá em cima.",
+  "O simples fato de você existir já faz diferença.",
+  "Você merece acolhimento. Você merece paz.",
+  "Sua vida não é um erro. Você é um propósito.",
+  "Lembre-se: pedir ajuda não é fraqueza, é coragem.",
+  "Cada recomeço é uma vitória sobre o ontem.",
+  "Sua presença importa para este mundo.",
+  "Você é insubstituível. Nunca se esqueça disso.",
+  "Não há noite que dure para sempre. A manhã sempre chega.",
+  "Até o menor gesto de autocuidado vale muito.",
+  "Você não precisa ter todas as respostas hoje.",
+  "Permita-se acreditar que coisas boas estão por vir.",
+  "O amanhã pode surpreender você de formas lindas.",
+  "Sua vida é preciosa e única.",
+  "Existem pessoas que querem caminhar ao seu lado.",
+  "Você é um universo inteiro em forma de gente.",
+  "Esperança é a chama que nunca se apaga dentro de você."
+];
 
-    function sortearMensagem(){
-      return mensagens[Math.floor(Math.random()*mensagens.length)];
-    }
+function sortearMensagem(){return mensagens[Math.floor(Math.random()*mensagens.length)];}
 
-    function exibirNovaMensagem(){
-      const el = document.getElementById("mensagem");
-      const card = document.getElementById("card");
-      card.classList.add("animate");
-      el.classList.remove("show");
-      setTimeout(() => {
-        el.textContent = sortearMensagem();
-        el.classList.add("show");
-        setTimeout(()=>card.classList.remove("animate"),500);
-      }, 200);
-    }
+function exibirNovaMensagem(){
+  const el=document.getElementById("mensagem");
+  const card=document.getElementById("card");
+  card.classList.add("animate");
+  el.classList.remove("show");
+  setTimeout(()=>{
+    el.textContent=sortearMensagem();
+    el.classList.add("show");
+    setTimeout(()=>card.classList.remove("animate"),500);
+  },200);
+}
+exibirNovaMensagem();
+document.getElementById("btnNova").addEventListener("click", exibirNovaMensagem);
 
-    exibirNovaMensagem();
-    document.getElementById("btnNova").addEventListener("click", exibirNovaMensagem);
+document.getElementById("btnShare").addEventListener("click", ()=>{
+  const texto=document.getElementById("mensagem").textContent+" 💛 #SetembroAmarelo";
+  if(navigator.share){
+    navigator.share({title:"Setembro Amarelo",text:texto,url:window.location.href});
+  }else{
+    const url="https://wa.me/?text="+encodeURIComponent(texto);
+    window.open(url,"_blank");
+  }
+});
 
-    document.getElementById("btnShare").addEventListener("click", () => {
-      const texto = document.getElementById("mensagem").textContent + " 💛 #SetembroAmarelo";
-      if (navigator.share) {
-        navigator.share({ title:"Setembro Amarelo", text:texto, url:window.location.href });
-      } else {
-        const url = "https://wa.me/?text=" + encodeURIComponent(texto);
-        window.open(url,"_blank");
-      }
-    });
-
-    const pingosContainer = document.getElementById("pingos");
-    for(let i=0;i<25;i++){
-      const p = document.createElement("div");
-      p.classList.add("pingo");
-      p.textContent = "💛";
-      p.style.left = Math.random()*100 + "vw";
-      p.style.fontSize = (16 + Math.random()*20) + "px";
-      p.style.animationDuration = (4 + Math.random()*6) + "s";
-      p.style.animationDelay = (Math.random()*5) + "s";
-      pingosContainer.appendChild(p);
-    }
-  </script>
+// Corações caindo
+const pingosContainer=document.getElementById("pingos");
+for(let i=0;i<25;i++){
+  const p=document.createElement("div");
+  p.classList.add("pingo");
+  p.textContent="💛";
+  p.style.left=Math.random()*100+"vw";
+  p.style.fontSize=(16+Math.random()*20)+"px";
+  p.style.animationDuration=(4+Math.random()*6)+"s";
+  p.style.animationDelay=(Math.random()*5)+"s";
+  pingosContainer.appendChild(p);
+}
+</script>
 </body>
 </html>
-
